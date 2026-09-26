@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jastine Mkiramwene | Full Stack Developer">
+<meta name="author" content="Jastine Mkiramwene">
+<title>Jastine Mkiramwene | Full Stack Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+:root {
+  --color-pallete-darkest-navy: #06141B;
+  --color-pallete-deep-navy: #11212D;
+  --color-pallete-dark-slate: #253745;
+  --color-pallete-steel-blue: #4A5C6A;
+  --color-pallete-muted-gray: #9BA8AB;
+  --color-pallete-light-gray: #CCD0CF;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--color-pallete-darkest-navy);
+  color: var(--color-pallete-light-gray);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--color-pallete-darkest-navy);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-logo {
+  width: 70px;
+  height: 70px;
+  border: 2px solid var(--color-pallete-steel-blue);
+  border-top-color: var(--color-pallete-light-gray);
+  border-radius: 50%;
+  margin: auto;
+}
+
+.loader-text {
+  margin-top: 22px;
+  color: var(--color-pallete-light-gray);
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+header {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6, 20, 27, .98) 0%,
+      rgba(6, 20, 27, .92) 45%,
+      rgba(6, 20, 27, .65) 100%
+    ),
+    url("images/hero.jpg") center/cover;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(204, 208, 207, .08);
+  border-radius: 50%;
+  right: -180px;
+  top: -120px;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 0;
+  z-index: 10;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.logo span {
+  color: var(--color-pallete-muted-gray);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-pallete-muted-gray);
+  font-size: 14px;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+.hero {
+  width: 100%;
+  padding-top: 80px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--color-pallete-muted-gray);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.eyebrow i {
+  font-size: 7px;
+}
+
+.hero h1 {
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: -4px;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: var(--color-pallete-muted-gray);
+}
+
+.hero p {
+  max-width: 650px;
+  color: var(--color-pallete-light-gray);
+  font-size: 17px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 13px 22px;
+  border: 1px solid var(--color-pallete-steel-blue);
+  font-size: 14px;
+  transition: .3s;
+}
+
+.btn-primary {
+  background: var(--color-pallete-light-gray);
+  color: var(--color-pallete-darkest-navy);
+}
+
+.btn-primary:hover {
+  background: var(--white);
+}
+
+.btn-secondary {
+  color: var(--color-pallete-light-gray);
+}
+
+.btn-secondary:hover {
+  background: var(--color-pallete-deep-navy);
+}
+
+.profile-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
+
+.profile-frame {
+  position: relative;
+  width: 360px;
+  height: 430px;
+  background: var(--color-pallete-deep-navy);
+  border: 1px solid var(--color-pallete-steel-blue);
+  padding: 12px;
+  transform: rotate(2deg);
+}
+
+.profile-frame::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(204, 208, 207, .12);
+  pointer-events: none;
+}
+
+.profile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-cartoon {
+  position: absolute;
+  width: 135px;
+  height: 135px;
+  right: -45px;
+  bottom: 20px;
+  background: var(--color-pallete-deep-navy);
+  border: 4px solid var(--color-pallete-darkest-navy);
+  outline: 1px solid var(--color-pallete-steel-blue);
+  overflow: hidden;
+  transform: rotate(-7deg);
+}
+
+.profile-cartoon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-label {
+  position: absolute;
+  left: -35px;
+  top: 50px;
+  background: var(--color-pallete-dark-slate);
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-pallete-light-gray);
+}
+
+section {
+  padding: 110px 0;
+}
+
+.section-header {
+  margin-bottom: 55px;
+}
+
+.section-number {
+  color: var(--color-pallete-steel-blue);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.section-header h2 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  color: var(--white);
+  letter-spacing: -2px;
+}
+
+.section-header p {
+  max-width: 650px;
+  margin-top: 15px;
+  color: var(--color-pallete-muted-gray);
+}
+
+.about {
+  background: var(--color-pallete-deep-navy);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.about-image {
+  height: 460px;
+  overflow: hidden;
+  border: 1px solid var(--color-pallete-steel-blue);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text h3 {
+  font-size: 28px;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  color: var(--color-pallete-muted-gray);
+  margin-bottom: 18px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-pallete-steel-blue);
+}
+
+.skill {
+  background: var(--color-pallete-darkest-navy);
+  padding: 30px 25px;
+  min-height: 180px;
+  transition: .3s;
+}
+
+.skill:hover {
+  background: var(--color-pallete-deep-navy);
+}
+
+.skill i {
+  font-size: 25px;
+  color: var(--color-pallete-muted-gray);
+  margin-bottom: 20px;
+}
+
+.skill h3 {
+  color: var(--white);
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.skill p {
+  color: var(--color-pallete-muted-gray);
+  font-size: 13px;
+}
+
+.tech-stack {
+  background: var(--color-pallete-deep-navy);
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tech {
+  border: 1px solid var(--color-pallete-steel-blue);
+  padding: 12px 18px;
+  color: var(--color-pallete-light-gray);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.tech i {
+  color: var(--color-pallete-muted-gray);
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 50px;
+  padding: 45px 0;
+  border-top: 1px solid var(--color-pallete-dark-slate);
+}
+
+.experience-date {
+  color: var(--color-pallete-muted-gray);
+  font-size: 13px;
+}
+
+.experience-content h3 {
+  color: var(--white);
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.experience-company {
+  color: var(--color-pallete-steel-blue);
+  margin-bottom: 18px;
+}
+
+.experience-content p {
+  color: var(--color-pallete-muted-gray);
+  max-width: 750px;
+}
+
+.projects {
+  background: var(--color-pallete-deep-navy);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.project {
+  border: 1px solid var(--color-pallete-steel-blue);
+  background: var(--color-pallete-darkest-navy);
+  overflow: hidden;
+  transition: .4s;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+}
+
+.project-image {
+  height: 270px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.project:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-body {
+  padding: 28px;
+}
+
+.project-type {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-pallete-steel-blue);
+  margin-bottom: 10px;
+}
+
+.project-body h3 {
+  color: var(--white);
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+
+.project-body p {
+  color: var(--color-pallete-muted-gray);
+  font-size: 14px;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.project-tech span {
+  font-size: 11px;
+  border: 1px solid var(--color-pallete-dark-slate);
+  padding: 5px 9px;
+  color: var(--color-pallete-muted-gray);
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact-content {
+  max-width: 750px;
+  margin: auto;
+}
+
+.contact h2 {
+  font-size: clamp(38px, 6vw, 65px);
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 25px;
+}
+
+.contact p {
+  color: var(--color-pallete-muted-gray);
+  margin-bottom: 30px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  border: 1px solid var(--color-pallete-steel-blue);
+  padding: 12px 18px;
+  color: var(--color-pallete-light-gray);
+  font-size: 13px;
+  transition: .3s;
+}
+
+.contact-link:hover {
+  background: var(--color-pallete-deep-navy);
+}
+
+footer {
+  border-top: 1px solid var(--color-pallete-deep-navy);
+  padding: 30px 0;
+  color: var(--color-pallete-muted-gray);
+  font-size: 12px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.socials {
+  display: flex;
+  gap: 18px;
+}
+
+.socials a {
+  transition: .3s;
+}
+
+.socials a:hover {
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .hero-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-area {
+    min-height: 450px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 650px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  .profile-frame {
+    width: 290px;
+    height: 360px;
+  }
+
+  .profile-cartoon {
+    width: 105px;
+    height: 105px;
+    right: -20px;
+  }
+
+  .profile-label {
+    left: -15px;
+  }
+
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    height: 350px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="preloader">
+  <div class="loader-content">
+    <div class="loader-logo"></div>
+    <div class="loader-text">Jastine Mkiramwene</div>
+  </div>
+</div>
+
+<header id="home">
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">JM<span>.</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container hero">
+  <div class="hero-grid">
+
+    <div class="hero-content">
+      <div class="eyebrow">
+        <i class="fa-solid fa-circle"></i>
+        Tanzania Based Developer
+      </div>
+
+      <h1>
+        Jastine<br>
+        <span>Mkiramwene</span>
+      </h1>
+
+      <p>
+        Full Stack Developer focused on building modern web and mobile
+        applications, digital systems, APIs, databases and data driven
+        technology solutions.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="profile-area">
+
+      <div class="profile-frame">
+        <img src="images/profile.jpg" alt="Jastine Mkiramwene">
+      </div>
+
+      <div class="profile-label">
+        Full Stack Developer
+      </div>
+
+      <div class="profile-cartoon">
+        <img src="images/profile-cartoon.jpg" alt="Jastine Mkiramwene cartoon">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</header>
+
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-number">01 / ABOUT</div>
+      <h2>Building with technology.</h2>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-image">
+        <img src="images/about.jpg" alt="Software development">
+      </div>
+
+      <div class="about-text">
+        <h3>Full Stack Developer</h3>
+
+        <p>
+          I build web and mobile applications using JavaScript technologies,
+          with a focus on practical digital products and reliable system
+          workflows.
+        </p>
+
+        <p>
+          My technical work covers frontend development, backend development,
+          APIs, relational databases, data handling, application integration
+          and digital health technology.
+        </p>
+
+        <p>
+          I also have additional knowledge of Python, Azure, data analytics
+          and artificial intelligence and machine learning concepts.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-number">02 / CAPABILITIES</div>
+      <h2>Technical Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill">
+        <i class="fa-brands fa-js"></i>
+        <h3>JavaScript</h3>
+        <p>Modern JavaScript development for web, mobile and backend applications.</p>
+      </div>
+
+      <div class="skill">
+        <i class="fa-brands fa-react"></i>
+        <h3>React & React Native</h3>
+        <p>Responsive web interfaces and cross platform mobile applications.</p>
+      </div>
+
+      <div class="skill">
+        <i class="fa-brands fa-node-js"></i>
+        <h3>Node.js</h3>
+        <p>Backend services, APIs, application logic and system integration.</p>
+      </div>
+
+      <div class="skill">
+        <i class="fa-solid fa-database"></i>
+        <h3>SQL & MySQL</h3>
+        <p>Relational databases, queries, data management and application data workflows.</p>
+      </div>
+
+      <div class="skill">
+        <i class="fa-brands fa-python"></i>
+        <h3>Python</h3>
+        <p>Additional programming knowledge for data and machine learning applications.</p>
+      </div>
+
+      <div class="skill">
+        <i class="fa-solid fa-cloud"></i>
+        <h3>Microsoft Azure</h3>
+        <p>Knowledge of cloud technologies and Azure based development environments.</p>
+      </div>
+
+      <div class="skill">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Data Analytics</h3>
+        <p>Data preparation, analysis, validation and information management.</p>
+      </div>
+
+      <div class="skill">
+        <i class="fa-solid fa-network-wired"></i>
+        <h3>APIs & Integration</h3>
+        <p>REST APIs, system communication and integration between digital services.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="tech-stack">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-number">03 / TECHNOLOGY</div>
+      <h2>Technology Focus</h2>
+    </div>
+
+    <div class="tech-list">
+
+      <div class="tech"><i class="fa-brands fa-js"></i> JavaScript</div>
+      <div class="tech"><i class="fa-brands fa-react"></i> React</div>
+      <div class="tech"><i class="fa-brands fa-react"></i> React Native</div>
+      <div class="tech"><i class="fa-brands fa-node-js"></i> Node.js</div>
+      <div class="tech"><i class="fa-solid fa-database"></i> MySQL</div>
+      <div class="tech"><i class="fa-solid fa-code"></i> SQL</div>
+      <div class="tech"><i class="fa-brands fa-python"></i> Python</div>
+      <div class="tech"><i class="fa-solid fa-cloud"></i> Azure</div>
+      <div class="tech"><i class="fa-solid fa-plug"></i> REST APIs</div>
+      <div class="tech"><i class="fa-solid fa-chart-simple"></i> Data Analytics</div>
+      <div class="tech"><i class="fa-solid fa-brain"></i> AI & ML</div>
+      <div class="tech"><i class="fa-solid fa-map"></i> QGIS</div>
+      <div class="tech"><i class="fa-brands fa-git-alt"></i> Git</div>
+      <div class="tech"><i class="fa-brands fa-github"></i> GitHub</div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-number">04 / EXPERIENCE</div>
+      <h2>Technical Experience</h2>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-date">FEB 2025 — MAR 2026</div>
+
+      <div class="experience-content">
+        <h3>Full Stack Developer</h3>
+        <div class="experience-company">Apilox Health Ltd</div>
+
+        <p>
+          Developed and maintained a digital pharmacy platform using
+          JavaScript, React Native, Node.js, APIs and MySQL. Worked on
+          application workflows, database operations, data handling,
+          system integration and technical improvements.
+        </p>
+      </div>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-date">SEP 2025 — APR 2026</div>
+
+      <div class="experience-content">
+        <h3>AI & Machine Learning Intern</h3>
+        <div class="experience-company">Awibi Health</div>
+
+        <p>
+          Gained practical knowledge of artificial intelligence and machine
+          learning, including data preparation, machine learning concepts
+          and their application to health related technology solutions.
+        </p>
+      </div>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-date">FEB 2026</div>
+
+      <div class="experience-content">
+        <h3>Digital Governance Assessor</h3>
+        <div class="experience-company">UN DESA</div>
+
+        <p>
+          Contributed to the 2026 UN E Government Survey through digital
+          governance assessment, data analysis and digital government
+          assessment activities.
+        </p>
+      </div>
+    </div>
+
+    <div class="experience-item">
+      <div class="experience-date">OCT 2024 — PRESENT</div>
+
+      <div class="experience-content">
+        <h3>Environmental Informatics Analyst</h3>
+        <div class="experience-company">SECCA</div>
+
+        <p>
+          Supported environmental information management through data
+          collection, statistical analysis, monitoring and evaluation,
+          and assessment of environmental information systems and processes.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects" class="projects">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-number">05 / PROJECTS</div>
+      <h2>Selected Projects</h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <article class="project">
+
+        <div class="project-image">
+          <img src="images/apilox.jpg" alt="Apilox Health">
+        </div>
+
+        <div class="project-body">
+          <div class="project-type">Digital Health</div>
+
+          <h3>Apilox Health</h3>
+
+          <p>
+            Digital pharmacy technology platform connecting pharmacy services,
+            prescriptions, medicine information and digital workflows.
+          </p>
+
+          <div class="project-tech">
+            <span>React Native</span>
+            <span>Node.js</span>
+            <span>MySQL</span>
+            <span>REST API</span>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="project">
+
+        <div class="project-image">
+          <img src="images/data.jpg" alt="Data and information systems">
+        </div>
+
+        <div class="project-body">
+          <div class="project-type">Data Systems</div>
+
+          <h3>Data & Information Systems</h3>
+
+          <p>
+            Data management and information workflows focused on structured
+            data, validation, analysis and digital information delivery.
+          </p>
+
+          <div class="project-tech">
+            <span>SQL</span>
+            <span>Python</span>
+            <span>Data Analysis</span>
+            <span>QGIS</span>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="project">
+
+        <div class="project-image">
+          <img src="images/web.jpg" alt="Web application">
+        </div>
+
+        <div class="project-body">
+          <div class="project-type">Web Development</div>
+
+          <h3>Modern Web Applications</h3>
+
+          <p>
+            Responsive web interfaces and application experiences built
+            with modern JavaScript technologies.
+          </p>
+
+          <div class="project-tech">
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Vite</span>
+            <span>Tailwind</span>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="project">
+
+        <div class="project-image">
+          <img src="images/software.jpg" alt="Software development">
+        </div>
+
+        <div class="project-body">
+          <div class="project-type">Application Development</div>
+
+          <h3>Software Solutions</h3>
+
+          <p>
+            Practical software solutions combining frontend interfaces,
+            backend services, databases and external APIs.
+          </p>
+
+          <div class="project-tech">
+            <span>Node.js</span>
+            <span>JavaScript</span>
+            <span>MySQL</span>
+            <span>APIs</span>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+
+    <div class="contact-content">
+
+      <div class="section-number">06 / CONTACT</div>
+
+      <h2>Let's build something useful.</h2>
+
+      <p>
+        Available for software development, web applications, mobile
+        applications, digital systems and technology projects.
+      </p>
+
+      <div class="contact-links">
+
+        <a class="contact-link" href="mailto:jastinemkiramwene@gmail.com">
+          <i class="fa-solid fa-envelope"></i>
+          Email
+        </a>
+
+        <a class="contact-link" href="https://github.com/jastine-mkiramweni" target="_blank">
+          <i class="fa-brands fa-github"></i>
+          GitHub
+        </a>
+
+        <a class="contact-link" href="https://www.linkedin.com/in/jastine-mkiramwene-3a2046354/" target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+          LinkedIn
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+
+    <div>
+      © 2026 Jastine Mkiramwene
+    </div>
+
+    <div class="socials">
+      <a href="https://github.com/jastine-mkiramweni" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/jastine-mkiramwene-3a2046354/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+
+<script>
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".preloader");
+  const logo = document.querySelector(".loader-logo");
+  const text = document.querySelector(".loader-text");
+
+  const tl = gsap.timeline();
+
+  tl.to(logo, {
+    rotation: 360,
+    duration: 1.2,
+    ease: "power2.inOut"
+  })
+  .to(text, {
+    opacity: 0,
+    duration: .3
+  })
+  .to(loader, {
+    opacity: 0,
+    duration: .6,
+    ease: "power2.out",
+    onComplete: () => {
+      loader.style.display = "none";
+    }
+  })
+  .from(".hero-content > *", {
+    y: 35,
+    opacity: 0,
+    duration: .7,
+    stagger: .12,
+    ease: "power3.out"
+  }, "-=.2")
+  .from(".profile-frame", {
+    x: 80,
+    opacity: 0,
+    rotation: 8,
+    duration: 1,
+    ease: "power3.out"
+  }, "-=.6")
+  .from(".profile-cartoon", {
+    scale: 0,
+    opacity: 0,
+    rotation: -20,
+    duration: .6,
+    ease: "back.out(1.7)"
+  }, "-=.5");
+});
+
+gsap.registerPlugin();
+
+gsap.utils.toArray(".section-header").forEach(section => {
+  gsap.from(section.children, {
+    scrollTrigger: {
+      trigger: section,
+      start: "top 85%"
+    },
+    y: 30,
+    opacity: 0,
+    duration: .7,
+    stagger: .1
+  });
+});
+
+gsap.utils.toArray(".skill").forEach((item, index) => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: "top 90%"
+    },
+    y: 30,
+    opacity: 0,
+    duration: .5,
+    delay: index * .04
+  });
+});
+</script>
+
+</body>
+</html>
